@@ -23,7 +23,9 @@ npx medusa user -e you@example.com -p "a-long-password"
 npx medusa develop         # dashboard at http://localhost:9000/app
 ```
 
-Creating your own company and first admin is not in the dashboard yet; today it is the seed script or a module call. This is the biggest gap before real use.
+One install is one company (Partsgate v1 is single-tenant). Link your Medusa user to an admin employee once, from the shell: `LINK_USER_EMAIL=you@example.com LINK_EMPLOYEE_EMAIL=<employee email> npx medusa exec ./src/scripts/link-admin.ts`. A Medusa user without that link has no Partsgate rights.
+
+Creating your own company is not in the dashboard yet; today it is the seed script or a module call. This is the biggest gap before real use.
 
 ## Path B: Docker Compose
 
