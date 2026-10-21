@@ -16,7 +16,7 @@ One bomhq install serves one company (single-tenant): one install is one company
 | Approval threshold | Not denied. The order waits as `pending_approval` until a human approves or rejects it. |
 | Approval expiry | A waiting approval expires (72 hours by default, per install). The order is cancelled and its counted spend is released. |
 | Approver ceiling | Each approver can have a EUR ceiling; above it the Approve button is off and the server refuses. |
-| Four-eyes | The human owner of an agent cannot approve its orders, and cannot raise or widen its limits. Boundary: this protects against agents and non-admin staff, not against a malicious admin of the install, who controls the server. See [self-host](self-host.md) and the guarantees document. |
+| Four-eyes and audit | The human owner of an agent cannot approve its orders and can only lower its limits. Linked admins can change limits; every change is audited and shown to all admins on Approvals. Boundary: an admin of a self-hosted install controls the server, so nothing in the app can stop a determined admin. |
 
 ## What an approver sees
 
