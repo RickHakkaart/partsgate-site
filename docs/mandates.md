@@ -15,7 +15,6 @@ A mandate is what one agent may spend. A company admin sets it per agent in the 
 
 The agent, the supplier and the lines, the total, why it needs a human, the agent's mandate and what it already spent this month. Approve places the order. Reject needs a reason and the order is cancelled.
 
-> Today the backend stores a rejection but does not yet persist the reason text. The dashboard asks for it and sends it.
 
 ## Order states
 
