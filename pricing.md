@@ -1,14 +1,18 @@
 # Pricing
 
-We do not know yet what teams will pay, so we are not pretending to. Here is what is true today.
+Partsgate is open source and self-hosted first. We do not know yet what teams will pay for extras, so we are not pretending to.
 
-### Design partner: EUR 0
+### Open source: EUR 0
 
-For the first companies, while we learn. Agents, mandates and the approval queue; Mouser first, DigiKey when it is verified; low caps on real orders to start. In return: a short call every two weeks and honest feedback.
+Apache-2.0. You run it, with your own distributor keys, as your own team's purchasing tool. Agents, mandates and the approval queue; Mouser and DigiKey connectors (not yet verified live); your keys and distributor account stay with you. See the [self-host quickstart](docs/self-host.md).
 
-### After the pilot: flat, per company
+### Possible extras: not decided
 
-One monthly price per company, not per agent and not per part. The number is not set yet, and design partners hear it before it applies. No percentage on your parts; you pay the distributor on your own account. An optional per-order fee is being considered. Nothing is decided.
+Hypothesis, unverified: paid modules for approvals, audit trail, single sign-on and multiple sites, plus support. Hosted only where a distributor approves it in writing. Nothing here is for sale yet. No percentage on your parts; you pay the distributor on your own account.
+
+## Why self-hosted
+
+Distributor API terms tie their credentials to an internal application used by the account holder. A shared gateway that orders on many customers' accounts would need each distributor's written approval, so the supported path is that every team runs its own copy.
 
 ## What we do not do
 
@@ -16,9 +20,8 @@ One monthly price per company, not per agent and not per part. The number is not
 - We do not hold your money. Payment is the distributor's account billing.
 - We do not publish a price we have not tested with real buyers.
 
-## Become a design partner
+## Early adopters
 
-You fit if a hardware team of one to fifty reorders parts regularly and you would let an agent do it inside a cap. Write to the address on the sign-up page once it exists. For now this site is a placeholder and has no contact form.
-
+You fit if a hardware team of one to fifty reorders parts regularly and you would let an agent do it inside a cap. We help the first teams set it up. Write to the address on the sign-up page once it exists. For now this site is a placeholder and has no contact form.
 
 Source: https://partsgate.example/pricing.md

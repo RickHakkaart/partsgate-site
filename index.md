@@ -29,9 +29,13 @@ Claude Code:
 claude mcp add --transport http partsgate https://partsgate.example/mcp --header "Authorization: Bearer <key>"
 ```
 
+## Run it yourself
+
+Partsgate is open source (Apache-2.0) and self-hosted first: your team runs it with your own distributor keys. See the [self-host quickstart](docs/self-host.md).
+
 ## Status, plainly
 
-> Partsgate is pre-launch. The Mouser and DigiKey connectors are written against the distributors' documentation and have not been verified against a live account yet. Until then, treat every order as a design-partner pilot with a low cap. See [pricing](pricing.md) for what a design partner gets.
+> Partsgate is pre-launch. The Mouser and DigiKey connectors are written against the distributors' documentation and have not been verified against a live account yet. Until then, keep caps low. See [pricing](pricing.md) for the open-source and extras picture.
 
 
 Source: https://partsgate.example/index.md
