@@ -39,7 +39,7 @@ curl -s https://<your-host>/mcp \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
 ```
 
-This server belongs to one company. One bomhq install serves one company (single-tenant): one install is one company. The server URL below is your own install.
+This server belongs to one company. One bomhq install serves one company (single-tenant): one install is one company. Use the URL of your own install.
 
 ## Before you run it
 
