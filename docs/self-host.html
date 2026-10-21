@@ -6,31 +6,32 @@
 <title>Self-host quickstart</title>
 <meta name="description" content="Run Partsgate yourself with your own distributor keys.">
 <link rel="alternate" type="text/markdown" href="self-host.md">
+<script>try{var t=localStorage.getItem("pg-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="stylesheet" href="../assets/site.css">
 <script src="../assets/site.js" defer></script>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="../index.html">Partsgate</a><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">Partsgate</a><div class="topr"><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="../docs/connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
 <main><div class="wrap">
 <nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html">Mandates</a><a href="tools.html">Tools</a><a href="self-host.html" aria-current="page">Self-host</a></nav>
 <h1>Self-host quickstart</h1>
-<div class="row"><button class="btn" type="button" data-copy-page="self-host.md">Copy page</button><a class="lnk" href="self-host.md">View as Markdown</a></div>
+<div class="cta"><button class="btn" type="button" data-copy-page="self-host.md">Copy page</button><a class="lnk" href="self-host.md">View as Markdown</a></div>
 <p>Partsgate is open source (Apache-2.0) and meant to be run by your own team, on your own distributor keys. Your keys and your distributor account stay with you. See the <a href="../pricing.html">pricing page</a> for why it is built this way.</p>
-<div class="note"><p>Status: pre-launch. The distributor connectors are written against the vendors' documentation and have never talked to a live account. Start with mock mode, then a read-only live search, and keep caps low.</p></div>
+<p class="note"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Pre-launch</span></span><span class="txt">The distributor connectors are written against the vendors' documentation and have never talked to a live account. Start with mock mode, then a read-only live search, and keep caps low.</span></p>
 <h2>Requirements</h2>
 <ul><li>Node 22 and npm.</li><li>Either Docker, or nothing else: a user-space Postgres is bundled for local use.</li></ul>
 <h2>Path A: local, no Docker</h2>
-<div class="cmd"><p class="label">Run in the repository</p><pre id="s0" class="mono">npm install
+<div class="codewrap"><p class="label">Run in the repository</p><div class="codebar"><pre id="s0" class="mono">npm install
 npm run setup:env          # writes .env with random secrets
 node scripts/pg.mjs start  # leave running: Postgres on 127.0.0.1:54329
 npx medusa db:migrate
 npx medusa exec ./src/scripts/seed.ts   # demo company + agent keys (.demo-keys.json)
 npx medusa user -e you@example.com -p "a-long-password"
-npx medusa develop         # dashboard at http://localhost:9000/app</pre><button class="btn" type="button" data-copy-target="s0">Copy command</button></div>
+npx medusa develop         # dashboard at http://localhost:9000/app</pre><button class="btn" type="button" data-copy-target="s0">Copy command</button></div></div>
 <p class="small muted">Creating your own company and first admin is not in the dashboard yet; today it is the seed script or a module call. This is the biggest gap before real use.</p>
 <h2>Path B: Docker Compose</h2>
-<div class="cmd"><p class="label">Run in the repository</p><pre id="s1" class="mono">cp deploy/prod.env.example deploy/prod.env   # fill in random values
-docker compose -f deploy/compose.prod.yml --env-file deploy/prod.env up --build</pre><button class="btn" type="button" data-copy-target="s1">Copy command</button></div>
+<div class="codewrap"><p class="label">Run in the repository</p><div class="codebar"><pre id="s1" class="mono">cp deploy/prod.env.example deploy/prod.env   # fill in random values
+docker compose -f deploy/compose.prod.yml --env-file deploy/prod.env up --build</pre><button class="btn" type="button" data-copy-target="s1">Copy command</button></div></div>
 <p class="small muted">The compose file and Dockerfile have not been executed by the author yet. Put a TLS reverse proxy in front; the server binds 127.0.0.1 only.</p>
 <h2>Add your distributor keys</h2>
 <p>Keys belong to your team and go in the server environment, never in chat or source control.</p>
