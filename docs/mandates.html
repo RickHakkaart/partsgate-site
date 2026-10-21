@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mandates and approvals</title>
+<meta name="description" content="How spend limits, approvals and order states work.">
+<link rel="alternate" type="text/markdown" href="mandates.md">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">Partsgate</a><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav></div></header>
+<main><div class="wrap">
+<nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html" aria-current="page">Mandates</a><a href="tools.html">Tools</a></nav>
+<h1>Mandates and approvals</h1>
+<div class="row"><button class="btn" type="button" data-copy-page="mandates.md">Copy page</button><a class="lnk" href="mandates.md">View as Markdown</a></div>
+<p>A mandate is what one agent may spend. A company admin sets it per agent in the dashboard. Every <code>complete_checkout</code> is judged against it.</p>
+<h2>The four limits</h2>
+<table><thead><tr><th>Limit</th><th>What happens when it is hit</th></tr></thead><tbody><tr><td>Maximum per order</td><td>Denied. The agent gets a <code>mandate_denied</code> error and nothing is sent.</td></tr><tr><td>Monthly cap</td><td>Denied. Pending and confirmed orders count towards the cap.</td></tr><tr><td>Allowed categories</td><td>Denied if a line is outside the categories the agent may buy.</td></tr><tr><td>Approval threshold</td><td>Not denied. The order waits as <code>pending_approval</code> until a human approves or rejects it.</td></tr></tbody></table>
+<h2>What an approver sees</h2>
+<p>The agent, the supplier and the lines, the total, why it needs a human, the agent's mandate and what it already spent this month. Approve places the order. Reject needs a reason and the order is cancelled.</p>
+<div class="note"><p>Today the backend stores a rejection but does not yet persist the reason text. The dashboard asks for it and sends it.</p></div>
+<h2>Order states</h2>
+<table><thead><tr><th>State</th><th>Meaning</th></tr></thead><tbody><tr><td>Needs approval (<code>pending_approval</code>)</td><td>Above the threshold. Nothing has gone to the distributor.</td></tr><tr><td>Approved, sending (<code>approved</code>, <code>placing</code>)</td><td>A human approved. The order is being placed. Not final.</td></tr><tr><td>Confirmed (<code>confirmed</code>)</td><td>The distributor returned its own order number. The only success state.</td></tr><tr><td>Failed or rejected (<code>failed</code>, <code>rejected</code>)</td><td>The distributor refused, or an approver said no.</td></tr><tr><td>Cancelled (<code>cancelled</code>)</td><td>Closed without being placed.</td></tr></tbody></table>
+<h2>Five rules that always hold</h2>
+<ol><li><code>complete_checkout</code> needs an idempotency key. The same key returns the same order and never a second distributor order.</li><li>The mandate is checked on every completion.</li><li>The order is re-quoted right before placing, and again on approval. A changed total, quantity or stock aborts it.</li><li><code>confirmed</code> only when the distributor returns an order number. Agent-supplied status or order claims are ignored.</li><li>Completions are serialised with a database lock, so two retries cannot both place an order.</li></ol>
+<h2>Error codes you will see</h2>
+<p><code>mandate_denied</code>, <code>missing_idempotency_key</code>, <code>idempotency_key_reuse</code>, <code>mixed_supplier</code>, <code>quote_failed</code>, <code>agent_revoked</code>, <code>not_found</code>. Errors come back as an MCP tool result with <code>isError</code> and a <code>messages</code> array holding the code.</p>
+</div></main>
+<footer class="bot"><div class="wrap"><p>Partsgate is a working name. Domain, company and pricing are placeholders (partsgate.example).</p><p>This page as Markdown: <a href="mandates.md">mandates.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
+</body>
+</html>

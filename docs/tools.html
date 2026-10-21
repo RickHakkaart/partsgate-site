@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The six tools</title>
+<meta name="description" content="The six UCP shopping tools an agent gets, with arguments.">
+<link rel="alternate" type="text/markdown" href="tools.md">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">Partsgate</a><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav></div></header>
+<main><div class="wrap">
+<nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html">Mandates</a><a href="tools.html" aria-current="page">Tools</a></nav>
+<h1>The six tools</h1>
+<div class="row"><button class="btn" type="button" data-copy-page="tools.md">Copy page</button><a class="lnk" href="tools.md">View as Markdown</a></div>
+<p>Six tools, named and shaped after the Universal Commerce Protocol shopping service (<code>source/services/shopping/mcp.openrpc.json</code>). They are not yet schema-validated against the UCP JSON schemas. Variant ids look like <code>mouser:&lt;sku&gt;</code> or <code>digikey:&lt;sku&gt;</code>. One distributor per checkout.</p>
+<h3>search_catalog</h3>
+<p>Search components by MPN or keyword across Mouser and DigiKey, priced at your company's own distributor account.</p>
+<ul><li><code>catalog.query</code>: MPN or keyword</li><li><code>catalog.filters.categories</code>: optional list</li><li><code>catalog.pagination.limit</code>: 1 to 50</li></ul>
+<h3>get_product</h3>
+<p>Product detail: stock, minimum order quantity and price breaks at your pricing.</p>
+<ul><li><code>catalog.id</code>: an MPN or a variant id</li></ul>
+<h3>create_checkout</h3>
+<p>Create a checkout from variant ids and quantities.</p>
+<ul><li><code>checkout.line_items[]</code>: each with <code>item.id</code> and <code>quantity</code> (integer, 1 or more)</li></ul>
+<h3>update_checkout</h3>
+<p>Replace the line items and re-price. Use it after a failed re-quote.</p>
+<ul><li><code>id</code>: the checkout id</li><li><code>checkout.line_items[]</code>: as above</li></ul>
+<h3>complete_checkout</h3>
+<p>Place the order. Over your approval threshold it waits for a human.</p>
+<ul><li><code>id</code>: the checkout id</li><li><code>meta["idempotency-key"]</code> or an <code>Idempotency-Key</code> header: required</li></ul>
+<p>Over the threshold the checkout reports <code>complete_in_progress</code> and the order is <code>pending_approval</code>. Poll <code>get_order</code>.</p>
+<h3>get_order</h3>
+<p>Order state, including <code>pending_approval</code> and <code>confirmed</code>, and the distributor's order number.</p>
+<ul><li><code>id</code>: the order id</li></ul>
+</div></main>
+<footer class="bot"><div class="wrap"><p>Partsgate is a working name. Domain, company and pricing are placeholders (partsgate.example).</p><p>This page as Markdown: <a href="tools.md">tools.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
+</body>
+</html>

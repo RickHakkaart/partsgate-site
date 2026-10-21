@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connect your agent</title>
+<meta name="description" content="Connect an AI agent to Partsgate in 60 seconds.">
+<link rel="alternate" type="text/markdown" href="connect.md">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">Partsgate</a><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav></div></header>
+<main><div class="wrap">
+<nav class="subnav" aria-label="Docs"><a href="connect.html" aria-current="page">Connect</a><a href="mandates.html">Mandates</a><a href="tools.html">Tools</a></nav>
+<h1>Connect your agent</h1>
+<div class="row"><button class="btn" type="button" data-copy-page="connect.md">Copy page</button><a class="lnk" href="connect.md">View as Markdown</a></div>
+<p>Pick your client. Each one needs the same two things: the server URL and an agent API key.</p>
+<div data-picker><div class="tabs" role="tablist" aria-label="Choose your client"><button type="button" role="tab" id="t0" aria-controls="p0" aria-selected="true">Claude Code</button><button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="false">Cursor and other JSON clients</button><button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false">Plain HTTP</button></div><div role="tabpanel" id="p0" aria-labelledby="t0"><h3>Claude Code</h3><div class="cmd"><p class="label">Run in your terminal</p><pre id="c0" class="mono">claude mcp add --transport http partsgate https://partsgate.example/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn" type="button" data-copy-target="c0">Copy command</button></div><p class="small muted">Claude Code supports remote MCP servers over HTTP with a custom header.</p></div><div role="tabpanel" id="p1" aria-labelledby="t1"><h3>Cursor and other JSON clients</h3><p>Add this to your client's MCP configuration file (for Cursor, <code>mcp.json</code>).</p><div class="cmd"><p class="label">MCP server entry</p><pre id="c1" class="mono">{
+  "mcpServers": {
+    "partsgate": {
+      "url": "https://partsgate.example/mcp",
+      "headers": { "Authorization": "Bearer &lt;key&gt;" }
+    }
+  }
+}</pre><button class="btn" type="button" data-copy-target="c1">Copy command</button></div><p class="small muted">We have not verified a one-click install link for Cursor, so there is none here. Check your client's documentation for where the file lives.</p></div><div role="tabpanel" id="p2" aria-labelledby="t2"><h3>Plain HTTP</h3><p>The server speaks stateless Streamable HTTP. This lists the tools:</p><div class="cmd"><p class="label">List the tools</p><pre id="c2" class="mono">curl -s https://partsgate.example/mcp \
+  -H "Authorization: Bearer &lt;key&gt;" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'</pre><button class="btn" type="button" data-copy-target="c2">Copy command</button></div></div></div>
+<h2>Before you run it</h2>
+<ol><li>Ask a company admin to create an agent under <strong>Buyer company</strong> in the Partsgate dashboard and set its mandate.</li><li>Copy the key when it is shown. It starts with <code>pgk_</code> and is shown once; only its hash is stored.</li><li>Replace <code>&lt;key&gt;</code> in the command. Keep the key out of chat history and source control.</li></ol>
+<h2>Check it works</h2>
+<p>Ask your agent: "Search the catalog for GRM188R71C104KA01D and tell me the price breaks." It should call <code>search_catalog</code>. Prices are those of your company's own distributor account.</p>
+<p>Discovery profile for clients that read it: <code>https://partsgate.example/.well-known/ucp</code>. The tools and their arguments are on the <a href="tools.html">tools page</a>; limits and approvals are on the <a href="mandates.html">mandates page</a>.</p>
+</div></main>
+<footer class="bot"><div class="wrap"><p>Partsgate is a working name. Domain, company and pricing are placeholders (partsgate.example).</p><p>This page as Markdown: <a href="connect.md">connect.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
+</body>
+</html>
