@@ -26,8 +26,8 @@ nav.main{display:flex;flex-wrap:wrap;gap:0 16px}
 nav.main a,.subnav a{display:inline-flex;align-items:center;min-height:var(--touch);color:var(--muted);text-decoration:none;font-size:14px}
 nav.main a:hover,.subnav a:hover{color:var(--ink)}
 nav.main a[aria-current=page],.subnav a[aria-current=page]{color:var(--ink);font-weight:600}
-.themebtn{display:none}
-.js .themebtn{display:inline-flex}
+.btn.themebtn{display:none}
+.js .btn.themebtn{display:inline-flex}
 main{padding:40px 0 48px}
 h1{font-size:32px;line-height:1.2;font-weight:600;margin:0 0 24px;max-width:24ch;letter-spacing:-.01em}
 h2{font-size:16px;line-height:1.4;font-weight:600;margin:48px 0 8px}
@@ -106,5 +106,5 @@ footer.bot p{margin:0 0 4px;max-width:none}
   .rh>.st{grid-area:st}.rh>.main{grid-area:main}.rh>.tot{grid-area:tot}.rh>.exp{grid-area:exp}
   dl.cues{grid-template-columns:1fr;gap:0;margin-left:0}
   dl.cues dd{margin-bottom:8px}
-  .themebtn{width:auto}
+  .btn.themebtn{width:auto}
 }
