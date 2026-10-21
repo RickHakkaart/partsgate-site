@@ -1,15 +1,22 @@
 # Mandates and approvals
 
-A mandate is what one agent may spend. A company admin sets it per agent in the dashboard. Every `complete_checkout` is judged against it.
+A mandate is what one agent may spend. An admin sets it per agent in the dashboard. Every `complete_checkout` is judged against it.
 
-## The four limits
+## The limits
+
+One Partsgate install serves one company (single-tenant): one install is one company. Limits are set per agent; a company admin sets them in the dashboard.
 
 | Limit | What happens when it is hit |
 |---|---|
 | Maximum per order | Denied. The agent gets a `mandate_denied` error and nothing is sent. |
-| Monthly cap | Denied. Pending and confirmed orders count towards the cap. |
+| Monthly cap | Denied. Pending, unconfirmed and confirmed orders count towards the cap. |
 | Allowed categories | Denied if a line is outside the categories the agent may buy. |
+| Allowed suppliers | Denied if the checkout is at a supplier the agent may not use. Empty means any. |
+| Allowed ship-to destinations | Denied if the ship-to code is not on the list. Empty means anywhere. |
 | Approval threshold | Not denied. The order waits as `pending_approval` until a human approves or rejects it. |
+| Approval expiry | A waiting approval expires (72 hours by default, per install). The order is cancelled and its counted spend is released. |
+| Approver ceiling | Each approver can have a EUR ceiling; above it the Approve button is off and the server refuses. |
+| Four-eyes | The human owner of an agent cannot approve its orders, and cannot raise or widen its limits. Boundary: this protects against agents and non-admin staff, not against a malicious admin of the install, who controls the server. See [self-host](self-host.md) and the guarantees document. |
 
 ## What an approver sees
 

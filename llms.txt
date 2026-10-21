@@ -1,6 +1,6 @@
 # Partsgate
 
-> Governed ordering for hardware agents. An MCP server that lets an AI agent buy electronic components from Mouser and DigiKey on the buyer's own account, inside per-agent spend mandates, with human approval above a threshold. Pre-launch; domain and name are placeholders.
+> Governed ordering for hardware agents. An MCP server that lets an AI agent buy electronic components from Mouser and DigiKey on the buyer's own account, inside per-agent spend mandates, with human approval above a threshold. Single-tenant: one install is one company. Pre-launch; domain and name are placeholders.
 
 Every page has a Markdown twin. Prefer these.
 

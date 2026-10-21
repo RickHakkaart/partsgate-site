@@ -4,7 +4,7 @@ Six tools, named and shaped after the Universal Commerce Protocol shopping servi
 
 ### search_catalog
 
-Search components by MPN or keyword across Mouser and DigiKey, priced at your company's own distributor account.
+Search components by MPN or keyword across Mouser and DigiKey, priced at your own distributor account (one install is one company).
 
 - `catalog.query`: MPN or keyword
 - `catalog.filters.categories`: optional list

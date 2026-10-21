@@ -14,6 +14,8 @@ Hypothesis, unverified: paid modules for approvals, audit trail, single sign-on 
 
 Distributor API terms tie their credentials to an internal application used by the account holder. A shared gateway that orders on many customers' accounts would need each distributor's written approval, so the supported path is that every team runs its own copy.
 
+One Partsgate install serves one company (single-tenant).
+
 ## What we do not do
 
 - We do not resell parts or add a margin. The order is placed on your own distributor account at your own prices.

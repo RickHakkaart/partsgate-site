@@ -10,6 +10,8 @@ Run in your terminal:
 claude mcp add --transport http partsgate https://partsgate.example/mcp --header "Authorization: Bearer <key>"
 ```
 
+Claude Code supports remote MCP servers over HTTP with a custom header.
+
 ### Cursor and other JSON clients
 
 Add to your client's MCP configuration file (for Cursor, mcp.json):
@@ -25,7 +27,7 @@ Add to your client's MCP configuration file (for Cursor, mcp.json):
 }
 ```
 
-No one-click install link is published for Cursor: it has not been verified.
+We have not verified a one-click install link for Cursor, so there is none here. Check your client's documentation for where the file lives.
 
 ### Plain HTTP
 
@@ -36,6 +38,8 @@ curl -s https://partsgate.example/mcp \
   -H "Accept: application/json, text/event-stream" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
 ```
+
+This server belongs to one company. One Partsgate install serves one company (single-tenant): one install is one company. The server URL below is your own install.
 
 ## Before you run it
 

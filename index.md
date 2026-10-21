@@ -23,7 +23,7 @@ Example, not a real order. Status: Needs approval. Agent bom-buyer, BOM rev B x 
 
 ## Where it sits
 
-Coding agents already read your KiCad project, pull the BOM and compare distributors. They stop before the part that costs money. Partsgate is that last step, not another search engine: one MCP server with six tools, company accounts, per-agent spend mandates and a human approval queue.
+Coding agents already read your KiCad project, pull the BOM and compare distributors. They stop before the part that costs money. Partsgate is that last step, not another search engine: one MCP server with six tools, per-agent spend mandates and a human approval queue.
 
 ## What stays under your control
 
@@ -34,7 +34,7 @@ Coding agents already read your KiCad project, pull the BOM and compare distribu
 
 ## Run it yourself
 
-Partsgate is open source (Apache-2.0) and self-hosted first: your team runs it with your own distributor keys. See the [self-host quickstart](docs/self-host.md).
+One Partsgate install serves one company (single-tenant): one install is one company. Partsgate is open source (Apache-2.0) and self-hosted first: your team runs it with your own distributor keys. See the [self-host quickstart](docs/self-host.md).
 
 ## Status, plainly
 
