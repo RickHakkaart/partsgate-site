@@ -1,6 +1,6 @@
 # Pricing
 
-Partsgate is open source and self-hosted first. We do not know yet what teams will pay for extras, so we are not pretending to.
+bomhq is open source and self-hosted first. We do not know yet what teams will pay for extras, so we are not pretending to.
 
 ### Open source: EUR 0
 
@@ -14,7 +14,7 @@ Hypothesis, unverified: paid modules for approvals, audit trail, single sign-on 
 
 Distributor API terms tie their credentials to an internal application used by the account holder. A shared gateway that orders on many customers' accounts would need each distributor's written approval, so the supported path is that every team runs its own copy.
 
-One Partsgate install serves one company (single-tenant).
+One bomhq install serves one company (single-tenant).
 
 ## What we do not do
 
@@ -26,4 +26,4 @@ One Partsgate install serves one company (single-tenant).
 
 You fit if a hardware team of one to fifty reorders parts regularly and you would let an agent do it inside a cap. We help the first teams set it up. Write to the address on the sign-up page once it exists. For now this site is a placeholder and has no contact form.
 
-Source: https://partsgate.example/pricing.md
+Source: https://bomhq.com/pricing.md

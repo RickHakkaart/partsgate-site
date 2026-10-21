@@ -45,4 +45,4 @@ Order state, including `pending_approval` and `confirmed`, and the distributor's
 - `id`: the order id
 
 
-Source: https://partsgate.example/docs/tools.md
+Source: https://bomhq.com/docs/tools.md

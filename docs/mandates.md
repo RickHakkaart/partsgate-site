@@ -4,7 +4,7 @@ A mandate is what one agent may spend. An admin sets it per agent in the dashboa
 
 ## The limits
 
-One Partsgate install serves one company (single-tenant): one install is one company. Limits are set per agent; a company admin sets them in the dashboard.
+One bomhq install serves one company (single-tenant): one install is one company. Limits are set per agent; a company admin sets them in the dashboard.
 
 | Limit | What happens when it is hit |
 |---|---|
@@ -46,4 +46,4 @@ The agent, the supplier and the lines, the total, why it needs a human, the agen
 `mandate_denied`, `missing_idempotency_key`, `idempotency_key_reuse`, `mixed_supplier`, `quote_failed`, `agent_revoked`, `not_found`. Errors come back as an MCP tool result with `isError` and a `messages` array holding the code.
 
 
-Source: https://partsgate.example/docs/mandates.md
+Source: https://bomhq.com/docs/mandates.md

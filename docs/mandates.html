@@ -11,14 +11,14 @@
 <script src="../assets/site.js" defer></script>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="../index.html">Partsgate</a><div class="topr"><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="../docs/connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">bomhq</a><div class="topr"><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="../docs/connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
 <main><div class="wrap">
 <nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html" aria-current="page">Mandates</a><a href="tools.html">Tools</a><a href="self-host.html">Self-host</a></nav>
 <h1>Mandates and approvals</h1>
 <div class="cta"><button class="btn" type="button" data-copy-page="mandates.md">Copy page</button><a class="lnk" href="mandates.md">View as Markdown</a></div>
 <p>A mandate is what one agent may spend. An admin sets it per agent in the dashboard. Every <code>complete_checkout</code> is judged against it.</p>
 <h2>The limits</h2>
-<p>One Partsgate install serves one company (single-tenant): one install is one company. Limits are set per agent; a company admin sets them in the dashboard.</p>
+<p>One bomhq install serves one company (single-tenant): one install is one company. Limits are set per agent; a company admin sets them in the dashboard.</p>
 <dl class="defs">
 <dt>Maximum per order</dt><dd>Denied. The agent gets a <code>mandate_denied</code> error and nothing is sent.</dd>
 <dt>Monthly cap</dt><dd>Denied. Pending, unconfirmed and confirmed orders count towards the cap.</dd>
@@ -28,7 +28,7 @@
 <dt>Approval threshold</dt><dd>Not denied. The order waits as <code>pending_approval</code> until a human approves or rejects it.</dd>
 <dt>Approval expiry</dt><dd>A waiting approval expires (72 hours by default, per install). The order is cancelled and its counted spend is released.</dd>
 <dt>Approver ceiling</dt><dd>Each approver can have a EUR ceiling; above it the Approve button is off and the server refuses.</dd>
-<dt>Four-eyes</dt><dd>The human owner of an agent cannot approve its orders, and cannot raise or widen its limits. Boundary: this protects against agents and non-admin staff, not against a malicious admin of the install, who controls the server. See <a href="https://partsgate.example/docs/self-host.html">self-host</a> and the guarantees document.</dd>
+<dt>Four-eyes</dt><dd>The human owner of an agent cannot approve its orders, and cannot raise or widen its limits. Boundary: this protects against agents and non-admin staff, not against a malicious admin of the install, who controls the server. See <a href="self-host.html">self-host</a> and the guarantees document.</dd>
 </dl>
 <h2>What an approver sees</h2>
 <p>The agent, the supplier and the lines, the total, why it needs a human, the agent's mandate and what it already spent this month. Approve places the order. Reject needs a reason and the order is cancelled.</p>
@@ -45,6 +45,6 @@
 <h2>Error codes you will see</h2>
 <p><code>mandate_denied</code>, <code>missing_idempotency_key</code>, <code>idempotency_key_reuse</code>, <code>mixed_supplier</code>, <code>quote_failed</code>, <code>agent_revoked</code>, <code>not_found</code>. Errors come back as an MCP tool result with <code>isError</code> and a <code>messages</code> array holding the code.</p>
 </div></main>
-<footer class="bot"><div class="wrap"><p>Partsgate is a working name. Domain, company and pricing are placeholders (partsgate.example).</p><p>This page as Markdown: <a href="mandates.md">mandates.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
+<footer class="bot"><div class="wrap"><p>bomhq is pre-launch. Pricing is not set.</p><p>This page as Markdown: <a href="mandates.md">mandates.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
 </body>
 </html>
