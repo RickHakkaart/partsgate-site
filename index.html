@@ -6,45 +6,47 @@
 <title>Partsgate: governed ordering for hardware agents</title>
 <meta name="description" content="Your agent can order the BOM. You set the limits and approve the money.">
 <link rel="alternate" type="text/markdown" href="index.md">
+<script>try{var t=localStorage.getItem("pg-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="index.html">Partsgate</a><nav class="main" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="docs/connect.html">Docs</a><a href="pricing.html">Pricing</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Partsgate</a><div class="topr"><nav class="main" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="docs/connect.html">Docs</a><a href="pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
 <main><div class="wrap">
 
 <section class="hero" aria-labelledby="h">
-<div><h1 id="h">Your agent can order the BOM. You approve the money.</h1>
-<p class="lead">Partsgate is the ordering step for hardware agents. Agents find parts and build the cart anywhere. Partsgate places the order at Mouser or DigiKey on your own account, inside limits you set, and a human approves anything above them.</p>
-<div class="row"><a class="btn primary" href="docs/connect.html">Connect your agent</a><a class="lnk" href="index.md">Read this page as Markdown</a></div></div>
-<aside class="ticket" aria-label="Example order ticket">
-<p class="who">Example, not a real order. Agent <strong>bom-buyer</strong> at a hardware startup.</p>
-<p class="ask">Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300.</p>
-<ul class="checks">
-<li class="ok"><svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.4l2.6 2.6L10 3.4"/></svg><span>Categories allowed: passives, ics</span></li>
-<li class="ok"><svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.4l2.6 2.6L10 3.4"/></svg><span>Under the per-order maximum of <span class="num">EUR 500.00</span></span></li>
-<li class="ok"><svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.4l2.6 2.6L10 3.4"/></svg><span>Inside this month's cap of <span class="num">EUR 2,000.00</span></span></li>
-<li class="wait"><svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="4.6"/><path d="M6 1.4a4.6 4.6 0 0 1 0 9.2z" fill="currentColor" stroke="none"/></svg><span>Above the approval threshold of <span class="num">EUR 250.00</span>, so it waits for a human</span></li>
-</ul>
-<div class="foot"><span class="chip" data-state="pending"><svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="4.6"/><path d="M6 1.4a4.6 4.6 0 0 1 0 9.2z" fill="currentColor" stroke="none"/></svg>Needs approval</span><span class="num">EUR 287.40</span></div>
-<p class="who" style="margin:12px 0 0">Distributor confirmation: none yet. It appears only after a human approves and the distributor returns an order number.</p>
-</aside>
+<h1 id="h">Your agent can order the BOM. You approve the money.</h1>
+<div class="codewrap"><p class="label">Connect Claude Code in 60 seconds</p><div class="codebar"><pre id="cmd-home" class="mono">claude mcp add --transport http partsgate https://partsgate.example/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn primary" type="button" data-copy-target="cmd-home">Copy command</button></div></div>
+<p class="why">Get the agent key from your company admin. Other clients are on the <a href="docs/connect.html">connect page</a>. Partsgate places the order at Mouser or DigiKey on your own account, inside limits you set, and a human approves anything above them.</p>
 </section>
+
+<h2>What you see when an order needs you</h2>
+<div class="sample" role="group" aria-label="Example order, not a real one">
+<div class="rh"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Needs approval</span></span><span class="main"><span class="who">bom-buyer</span><span class="mpn mono">BOM rev B x 5, spare passives</span></span><span class="tot num">EUR 287.40</span><span class="exp">expires in 71 h</span></div>
+<dl class="cues">
+<dt>Asked for</dt><dd>"Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300."</dd>
+<dt>Categories</dt><dd>Allowed: passives, ics</dd>
+<dt>Per order</dt><dd>Under the maximum of <span class="num">EUR 500.00</span></dd>
+<dt>This month</dt><dd>Inside the cap of <span class="num">EUR 2,000.00</span></dd>
+<dt>Threshold</dt><dd>Above <span class="num">EUR 250.00</span>, so it waits for a human</dd>
+<dt>Distributor confirmation</dt><dd>None yet. It appears only after a human approves and the distributor returns an order number.</dd>
+</dl>
+<p class="cap">Example, not a real order.</p>
+</div>
 
 <h2>Where it sits</h2>
 <p>Coding agents already read your KiCad project, pull the BOM and compare distributors. They stop before the part that costs money. Partsgate is that last step, not another search engine: one MCP server with six tools, company accounts, per-agent spend mandates and a human approval queue.</p>
 <h2>What stays under your control</h2>
-<div class="pair"><div><h3>A mandate per agent</h3><p>Maximum per order, monthly cap, allowed categories and an approval threshold. Hard limits are denied before anything is sent.</p></div>
-<div><h3>A human above the threshold</h3><p>Over the threshold the order waits. Nothing reaches the distributor until an approver says yes. A rejection needs a reason.</p></div>
-<div><h3>Re-quote before placing</h3><p>The price and stock are checked again right before the order goes out, and again on approval. If they changed, the order stops.</p></div>
-<div><h3>Confirmed means confirmed</h3><p>An order is confirmed only when the distributor returns its own order number. What an agent claims about payment or status is ignored.</p></div></div>
-<h2>Connect in 60 seconds</h2>
-<p>Get an agent API key from your company admin, then run one command in Claude Code. Other clients are on the <a href="docs/connect.html">connect page</a>.</p>
-<div class="cmd"><p class="label">Claude Code</p><pre id="cmd-home" class="mono">claude mcp add --transport http partsgate https://partsgate.example/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn" type="button" data-copy-target="cmd-home">Copy command</button></div>
+<dl class="defs">
+<dt>A mandate per agent</dt><dd>Maximum per order, monthly cap, allowed categories and an approval threshold. Hard limits are denied before anything is sent.</dd>
+<dt>A human above the threshold</dt><dd>Over the threshold the order waits. Nothing reaches the distributor until an approver says yes. A rejection needs a reason.</dd>
+<dt>Re-quote before placing</dt><dd>The price and stock are checked again right before the order goes out, and again on approval. If they changed, the order stops.</dd>
+<dt>Confirmed means confirmed</dt><dd>An order is confirmed only when the distributor returns its own order number. What an agent claims about payment or status is ignored.</dd>
+</dl>
 <h2>Run it yourself</h2>
 <p>Partsgate is open source (Apache-2.0) and self-hosted first: your team runs it with your own distributor keys. See the <a href="docs/self-host.html">self-host quickstart</a>.</p>
 <h2>Status, plainly</h2>
-<div class="note"><p>Partsgate is pre-launch. The Mouser and DigiKey connectors are written against the distributors' documentation and have not been verified against a live account yet. Until then, keep caps low. See <a href="pricing.html">pricing</a> for the open-source and extras picture.</p></div>
+<p class="note"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Pre-launch</span></span><span class="txt">The Mouser and DigiKey connectors are written against the distributors' documentation and have not been verified against a live account yet. Until then, keep caps low. See <a href="pricing.html">pricing</a> for the open-source and extras picture.</span></p>
 </div></main>
 <footer class="bot"><div class="wrap"><p>Partsgate is a working name. Domain, company and pricing are placeholders (partsgate.example).</p><p>This page as Markdown: <a href="index.md">index.md</a>. For agents: <a href="llms.txt">llms.txt</a>.</p></div></footer>
 </body>
