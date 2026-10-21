@@ -18,11 +18,12 @@ a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--faint);
 a:hover{text-decoration-color:var(--ink)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header.top{padding-top:8px}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 24px}
 .brand{display:inline-flex;align-items:center;min-height:var(--touch);font-weight:600;font-size:16px;color:var(--ink);text-decoration:none}
 .topr{display:flex;flex-wrap:wrap;align-items:center;gap:0 16px}
 nav.main{display:flex;flex-wrap:wrap;gap:0 16px}
-nav.main a,.subnav a{display:inline-flex;align-items:center;min-height:var(--touch);min-width:var(--touch);color:var(--muted);text-decoration:none;font-size:14px}
+nav.main a,.subnav a{display:inline-flex;align-items:center;min-height:var(--touch);color:var(--muted);text-decoration:none;font-size:14px}
 nav.main a:hover,.subnav a:hover{color:var(--ink)}
 nav.main a[aria-current=page],.subnav a[aria-current=page]{color:var(--ink);font-weight:600}
 .themebtn{display:none}
@@ -40,7 +41,7 @@ li{margin-bottom:4px}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accentInk)}
 .btn.primary:hover{background:var(--accentHover);border-color:var(--accentHover)}
 .cta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:0 0 24px}
-a.lnk{display:inline-flex;align-items:center;min-height:var(--touch);min-width:var(--touch);font-size:14px}
+a.lnk{display:inline-flex;align-items:center;min-height:var(--touch);font-size:14px}
 .hero{padding:24px 0 8px}
 .hero h1{margin-bottom:32px}
 .hero .why{font-size:14px;color:var(--muted);margin:16px 0 0;max-width:68ch}
@@ -57,7 +58,7 @@ a.lnk{display:inline-flex;align-items:center;min-height:var(--touch);min-width:v
 .dot[data-s=blocked]{background:var(--dotBlocked)}
 .dot[data-s=idle]{background:var(--dotIdle)}
 .sample{max-width:880px;margin:16px 0}
-.rh{display:grid;grid-template-columns:176px minmax(0,1fr) 128px 140px;column-gap:16px;align-items:center;min-height:var(--touch);padding:10px 0}
+.rh{display:grid;grid-template-columns:176px minmax(0,1fr) 128px 208px;column-gap:16px;align-items:center;min-height:var(--touch);padding:10px 0}
 .rh .main{display:flex;gap:8px 12px;min-width:0;overflow:hidden;align-items:baseline}
 .rh .who{flex:none;font-weight:600}
 .rh .mpn{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:14px}
@@ -91,6 +92,7 @@ footer.bot{padding:24px 0 40px;color:var(--muted);font-size:14px}
 footer.bot p{margin:0 0 4px;max-width:none}
 @media (max-width:640px){
   .wrap{padding:0 16px}
+  nav.main a,.subnav a,a.lnk{min-width:var(--touch)}
   main{padding-top:16px}
   .hero{padding-top:8px}
   .btn{width:100%}

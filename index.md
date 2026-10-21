@@ -12,7 +12,7 @@ Get the agent key from your company admin. Other clients are on the [connect pag
 
 ## What you see when an order needs you
 
-Example, not a real order. Status: Needs approval. Agent bom-buyer, 5 boards of rev B, 10% spare on passives, EUR 287.40, expires in 71 h.
+Example, not a real order. Status: Needs approval. Agent bom-buyer, BOM rev B x 5, spare passives, EUR 287.40, expires in 71 h.
 
 - Asked for: "Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300."
 - Categories: allowed: passives, ics
