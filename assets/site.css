@@ -92,7 +92,9 @@ footer.bot{padding:24px 0 40px;color:var(--muted);font-size:14px}
 footer.bot p{margin:0 0 4px;max-width:none}
 @media (max-width:640px){
   .wrap{padding:0 16px}
-  nav.main a,.subnav a,a.lnk{min-width:var(--touch)}
+  nav.main,.subnav{gap:0 4px}
+  nav.main a,.subnav a{padding:0 7px}
+  a.lnk{min-width:var(--touch)}
   main{padding-top:16px}
   .hero{padding-top:8px}
   .btn{width:100%}
