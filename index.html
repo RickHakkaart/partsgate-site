@@ -10,28 +10,51 @@
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
 </head>
-<body>
+<body class="home">
+<div class="glow" aria-hidden="true"></div>
 <header class="top"><div class="wrap"><a class="brand" href="index.html">bomhq</a><div class="topr"><nav class="main" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="docs/connect.html">Docs</a><a href="pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
 <main><div class="wrap">
 
 <section class="hero home" aria-labelledby="h">
-<h1 id="h">Your agent can order the BOM. You approve the money.</h1>
-<div class="codewrap"><p class="label">Connect Claude Code in 60 seconds</p><div class="codebar"><pre id="cmd-home" class="mono">claude mcp add --transport http bomhq https://bomhq.example-company.com/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn primary" type="button" data-copy-target="cmd-home">Copy command</button></div></div>
-<p class="why">Get the agent key from your company admin. Other clients are on the <a href="docs/connect.html">connect page</a>. bomhq places the order at Mouser or DigiKey on your own account, inside limits you set, and a human approves anything above them.</p>
-</section>
-<section class="sec" aria-labelledby="s1"><h2 id="s1">What you see when an order needs you</h2><div class="sec-body">
-<div class="sample" role="group" aria-label="Example order, not a real one"><div class="row sel">
-<div class="rh"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Needs approval</span></span><span class="main"><span class="who">bom-buyer</span><span class="mpn mono">BOM rev B x 5, spare passives</span></span><span class="tot num">EUR 287.40</span><span class="exp">expires in 71 h</span></div>
-<div class="row-body"><dl class="cues">
+<h1 id="h"><span class="hl">Your agent can order the BOM.</span> <span class="hl">You approve the money.</span></h1>
+<div class="hero-copy">
+<p class="why">bomhq places the order at Mouser or DigiKey on your own account, inside limits you set. A human approves anything above them.</p>
+<div class="cta"><a class="btn primary" href="docs/connect.html">Connect your agent</a><a class="btn" href="docs/self-host.html">Self-host</a></div>
+<div class="codewrap"><p class="label">Or add it from your terminal</p><div class="codebar"><pre id="cmd-home" class="mono">claude mcp add --transport http bomhq https://bomhq.example-company.com/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn" type="button" data-copy-target="cmd-home">Copy command</button></div></div>
+<p class="small">Get the agent key from your company admin. Other clients are on the <a href="docs/connect.html">connect page</a>.</p>
+</div>
+<figure class="product">
+<div class="term" role="group" aria-label="An agent in Claude Code placing an order">
+<div class="termbar mono"><span>claude code</span><span>example, not a real order</span></div>
+<div class="termbody mono">
+<div class="ln ask" style="--i:0"><span class="pr">&gt;</span><span>Order the BOM of rev B for 5 boards from Mouser, max EUR 300.</span></div>
+<div class="ln" style="--i:1"><span class="fn">search_catalog</span><span class="ar">query "STM32G431CBT6"</span></div>
+<div class="ln out" style="--i:2"><span class="fn"></span><span>1 match at Mouser, in stock</span></div>
+<div class="ln" style="--i:3"><span class="fn">create_checkout</span><span class="ar">2 lines, EUR 287.40</span></div>
+<div class="ln" style="--i:4"><span class="fn">complete_checkout</span><span class="ar">over the EUR 250.00 threshold</span></div>
+<div class="ln out" style="--i:5"><span class="fn"></span><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">pending approval</span></span></div>
+</div>
+</div>
+<div class="flow" style="--i:6"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Held until a human says yes</span></span></div>
+<div class="sample appr" style="--i:7" role="group" aria-label="Example approval screen, not a real order"><div class="row sel">
+<div class="rh"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Needs approval</span></span><span class="main"><span class="who">bom-buyer</span><span class="mpn mono">BOM rev B x 5</span></span><span class="tot num">EUR 287.40</span><span class="exp">expires in 71 h</span></div>
+<div class="row-body"><dl class="cues"><dt>Threshold</dt><dd>Above <span class="num">EUR 250.00</span>, so it waits</dd><dt>Distributor</dt><dd>No confirmation yet</dd></dl>
+<div class="acts"><span class="btn fake">Approve and order</span><span class="btn fake">Reject</span></div>
+<details class="more"><summary>Show the full check</summary><dl class="cues">
 <dt>Asked for</dt><dd>"Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300."</dd>
 <dt>Categories</dt><dd>Allowed: passives, ics</dd>
 <dt>Per order</dt><dd>Under the maximum of <span class="num">EUR 500.00</span></dd>
 <dt>This month</dt><dd>Inside the cap of <span class="num">EUR 2,000.00</span></dd>
-<dt>Threshold</dt><dd>Above <span class="num">EUR 250.00</span>, so it waits for a human</dd>
-<dt>Distributor confirmation</dt><dd>None yet. It appears only after a human approves and the distributor returns an order number.</dd>
-</dl></div></div></div>
-<p class="sample-cap">Example, not a real order.</p>
-</div></section>
+<dt>Confirmed when</dt><dd>A human approves and the distributor returns an order number.</dd>
+</dl></details></div></div></div>
+</figure>
+<dl class="proof">
+<div><dt>Orders at</dt><dd>Mouser and DigiKey</dd></div>
+<div><dt>Connects to</dt><dd>Claude Code, Cursor, any MCP client</dd></div>
+<div><dt>Licence</dt><dd>Apache-2.0, self-hosted first</dd></div>
+<div><dt>Status</dt><dd>Pre-launch, caps kept low</dd></div>
+</dl>
+</section>
 <section class="sec" aria-labelledby="s2"><h2 id="s2">Where it sits</h2><div class="sec-body">
 <p>Coding agents already read your KiCad project, pull the BOM and compare distributors. They stop before the part that costs money. bomhq is that last step, not another search engine: one MCP server with six tools, per-agent spend mandates and a human approval queue.</p>
 </div></section>

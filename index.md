@@ -2,24 +2,22 @@
 
 Your agent can order the BOM. You approve the money.
 
-Connect Claude Code in 60 seconds:
+bomhq places the order at Mouser or DigiKey on your own account, inside limits you set. A human approves anything above them.
+
+- [Connect your agent](docs/connect.md)
+- [Self-host](docs/self-host.md)
+
+Or add it from your terminal:
 
 ```
 claude mcp add --transport http bomhq https://bomhq.example-company.com/mcp --header "Authorization: Bearer <key>"
 ```
 
-Get the agent key from your company admin. Other clients are on the [connect page](docs/connect.md). bomhq places the order at Mouser or DigiKey on your own account, inside limits you set, and a human approves anything above them.
+Get the agent key from your company admin. Other clients are on the [connect page](docs/connect.md).
 
-## What you see when an order needs you
+Example, not a real order. The agent calls `search_catalog`, then `create_checkout`, then `complete_checkout`. The order is over the EUR 250.00 threshold, so it returns pending approval, and a human sees it as "Needs approval" with an Approve and order button. "Show the full check" opens the rest: asked for, "Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300."; categories allowed: passives, ics; per order, under the maximum of EUR 500.00; this month, inside the cap of EUR 2,000.00; confirmed only when a human approves and the distributor returns an order number.
 
-Example, not a real order. Status: Needs approval. Agent bom-buyer, BOM rev B x 5, spare passives, EUR 287.40, expires in 71 h.
-
-- Asked for: "Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300."
-- Categories: allowed: passives, ics
-- Per order: under the maximum of EUR 500.00
-- This month: inside the cap of EUR 2,000.00
-- Threshold: above EUR 250.00, so it waits for a human
-- Distributor confirmation: none yet. It appears only after a human approves and the distributor returns an order number.
+Orders at Mouser and DigiKey. Connects to Claude Code, Cursor and any MCP client. Apache-2.0, self-hosted first. Pre-launch, caps kept low.
 
 ## Where it sits
 
