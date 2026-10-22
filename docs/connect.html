@@ -3,43 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Connect your agent</title>
-<meta name="description" content="Connect an AI agent to bomhq in 60 seconds.">
-<link rel="alternate" type="text/markdown" href="connect.md">
-<script>try{var t=localStorage.getItem("pg-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<link rel="stylesheet" href="../assets/site.css">
-<script src="../assets/site.js" defer></script>
+<title>Moved to bomhq.com</title>
+<link rel="canonical" href="https://bomhq.com/docs/connect">
+<meta http-equiv="refresh" content="0; url=https://bomhq.com/docs/connect">
 </head>
-<body>
-<header class="top"><div class="wrap"><a class="brand" href="../index.html">bomhq</a><div class="topr"><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="../docs/connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
-<main><div class="wrap">
-<section class="hero doc" aria-labelledby="h"><nav class="subnav" aria-label="Docs"><a href="connect.html" aria-current="page">Connect</a><a href="mandates.html">Mandates</a><a href="tools.html">Tools</a><a href="self-host.html">Self-host</a></nav>
-<h1 id="h">Connect your agent</h1>
-<div class="cta"><button class="btn" type="button" data-copy-page="connect.md">Copy page</button><a class="lnk" href="connect.md">View as Markdown</a></div></section>
-<section class="sec intro"><div class="sec-body">
-<p>Pick your client. Each one needs the same two things: the server URL and an agent API key.</p>
-<div data-picker><div class="tabs" role="tablist" aria-label="Choose your client"><button type="button" role="tab" id="t0" aria-controls="p0" aria-selected="true">Claude Code</button><button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="false">Cursor and other JSON clients</button><button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false">Plain HTTP</button></div><div role="tabpanel" id="p0" aria-labelledby="t0"><h3>Claude Code</h3><div class="codewrap"><p class="label">Run in your terminal</p><div class="codebar"><pre id="c0" class="mono">claude mcp add --transport http bomhq https://&lt;your-host&gt;/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn" type="button" data-copy-target="c0">Copy command</button></div></div><p class="small muted">Claude Code supports remote MCP servers over HTTP with a custom header.</p></div><div role="tabpanel" id="p1" aria-labelledby="t1"><h3>Cursor and other JSON clients</h3><p>Add this to your client's MCP configuration file (for Cursor, <code>mcp.json</code>).</p><div class="codewrap"><p class="label">MCP server entry</p><div class="codebar"><pre id="c1" class="mono">{
-  "mcpServers": {
-    "bomhq": {
-      "url": "https://&lt;your-host&gt;/mcp",
-      "headers": { "Authorization": "Bearer &lt;key&gt;" }
-    }
-  }
-}</pre><button class="btn" type="button" data-copy-target="c1">Copy command</button></div></div><p class="small muted">We have not verified a one-click install link for Cursor, so there is none here. Check your client's documentation for where the file lives.</p></div><div role="tabpanel" id="p2" aria-labelledby="t2"><h3>Plain HTTP</h3><p>The server speaks stateless Streamable HTTP. This lists the tools:</p><div class="codewrap"><p class="label">List the tools</p><div class="codebar"><pre id="c2" class="mono">curl -s https://&lt;your-host&gt;/mcp \
-  -H "Authorization: Bearer &lt;key&gt;" \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json, text/event-stream" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'</pre><button class="btn" type="button" data-copy-target="c2">Copy command</button></div></div></div></div>
-<p>This server belongs to one company. One bomhq install serves one company (single-tenant): one install is one company. Use the URL of your own install.</p>
-</div></section>
-<section class="sec" aria-labelledby="s1"><h2 id="s1">Before you run it</h2><div class="sec-body">
-<ol><li>Ask a company admin to create an agent under <strong>Buyer company</strong> in the bomhq dashboard and set its mandate.</li><li>Copy the key when it is shown. It starts with <code>pgk_</code> and is shown once; only its hash is stored.</li><li>Replace <code>&lt;key&gt;</code> in the command. Keep the key out of chat history and source control.</li></ol>
-</div></section>
-<section class="sec" aria-labelledby="s2"><h2 id="s2">Check it works</h2><div class="sec-body">
-<p>Ask your agent: "Search the catalog for GRM188R71C104KA01D and tell me the price breaks." It should call <code>search_catalog</code>. Prices are those of your company's own distributor account.</p>
-<p>Discovery profile for clients that read it: <code>https://&lt;your-host&gt;/.well-known/ucp</code>. The tools and their arguments are on the <a href="tools.html">tools page</a>; limits and approvals are on the <a href="mandates.html">mandates page</a>.</p>
-</div></section>
-</div></main>
-<footer class="bot"><div class="wrap"><p>bomhq is pre-launch. Pricing is not set.</p><p>This page as Markdown: <a href="connect.md">connect.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
+<body style="font:16px/1.5 system-ui,sans-serif;margin:16px">
+<p>This page moved to <a href="https://bomhq.com/docs/connect">https://bomhq.com/docs/connect</a>.</p>
 </body>
 </html>

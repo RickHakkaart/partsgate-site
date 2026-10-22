@@ -3,53 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mandates and approvals</title>
-<meta name="description" content="How spend limits, approvals and order states work.">
-<link rel="alternate" type="text/markdown" href="mandates.md">
-<script>try{var t=localStorage.getItem("pg-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<link rel="stylesheet" href="../assets/site.css">
-<script src="../assets/site.js" defer></script>
+<title>Moved to bomhq.com</title>
+<link rel="canonical" href="https://bomhq.com/docs/mandates">
+<meta http-equiv="refresh" content="0; url=https://bomhq.com/docs/mandates">
 </head>
-<body>
-<header class="top"><div class="wrap"><a class="brand" href="../index.html">bomhq</a><div class="topr"><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="../docs/connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
-<main><div class="wrap">
-<section class="hero doc" aria-labelledby="h"><nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html" aria-current="page">Mandates</a><a href="tools.html">Tools</a><a href="self-host.html">Self-host</a></nav>
-<h1 id="h">Mandates and approvals</h1>
-<p class="lead">A mandate is what one agent may spend. An admin sets it per agent in the dashboard. Every <code>complete_checkout</code> is judged against it.</p>
-<div class="cta"><button class="btn" type="button" data-copy-page="mandates.md">Copy page</button><a class="lnk" href="mandates.md">View as Markdown</a></div></section>
-<section class="sec" aria-labelledby="s1"><h2 id="s1">The limits</h2><div class="sec-body">
-<p>One bomhq install serves one company (single-tenant): one install is one company. Limits are set per agent; a company admin sets them in the dashboard.</p>
-<dl class="defs">
-<dt>Maximum per order</dt><dd>Denied. The agent gets a <code>mandate_denied</code> error and nothing is sent.</dd>
-<dt>Monthly cap</dt><dd>Denied. Pending, unconfirmed and confirmed orders count towards the cap.</dd>
-<dt>Allowed categories</dt><dd>Denied if a line is outside the categories the agent may buy.</dd>
-<dt>Allowed suppliers</dt><dd>Denied if the checkout is at a supplier the agent may not use. Empty means any.</dd>
-<dt>Allowed ship-to destinations</dt><dd>Denied if the ship-to code is not on the list. Empty means anywhere.</dd>
-<dt>Approval threshold</dt><dd>Not denied. The order waits as <code>pending_approval</code> until a human approves or rejects it.</dd>
-<dt>Approval expiry</dt><dd>A waiting approval expires (72 hours by default, per install). The order is cancelled and its counted spend is released.</dd>
-<dt>Approver ceiling</dt><dd>Each approver can have a EUR ceiling; above it the Approve button is off and the server refuses.</dd>
-<dt>Four-eyes and audit</dt><dd>The human owner of an agent cannot approve its orders and can only lower its limits. Linked admins can change limits; every change is audited and shown to all admins on Approvals. Boundary: an admin of a self-hosted install controls the server, so nothing in the app can stop a determined admin.</dd>
-</dl>
-</div></section>
-<section class="sec" aria-labelledby="s2"><h2 id="s2">What an approver sees</h2><div class="sec-body">
-<p>The agent, the supplier and the lines, the total, why it needs a human, the agent's mandate and what it already spent this month. Approve places the order. Reject needs a reason and the order is cancelled.</p>
-</div></section>
-<section class="sec" aria-labelledby="s3"><h2 id="s3">Order states</h2><div class="sec-body">
-<dl class="defs">
-<dt><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Needs approval</span></span><code>pending_approval</code></dt><dd>Above the threshold. Nothing has gone to the distributor.</dd>
-<dt><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Approved, sending</span></span><code>approved, placing</code></dt><dd>A human approved. The order is being placed. Not final.</dd>
-<dt><span class="st"><span class="dot" data-s="active" aria-hidden="true"></span><span class="lbl">Confirmed</span></span><code>confirmed</code></dt><dd>The distributor returned its own order number. The only success state.</dd>
-<dt><span class="st"><span class="dot" data-s="blocked" aria-hidden="true"></span><span class="lbl">Failed or rejected</span></span><code>failed, rejected</code></dt><dd>The distributor refused, or an approver said no.</dd>
-<dt><span class="st"><span class="dot" data-s="idle" aria-hidden="true"></span><span class="lbl">Cancelled</span></span><code>cancelled</code></dt><dd>Closed without being placed.</dd>
-</dl>
-</div></section>
-<section class="sec" aria-labelledby="s4"><h2 id="s4">Five rules that always hold</h2><div class="sec-body">
-<ol><li><code>complete_checkout</code> needs an idempotency key. The same key returns the same order and never a second distributor order.</li><li>The mandate is checked on every completion.</li><li>The order is re-quoted right before placing, and again on approval. A changed total, quantity or stock aborts it.</li><li><code>confirmed</code> only when the distributor returns an order number. Agent-supplied status or order claims are ignored.</li><li>Completions are serialised with a database lock, so two retries cannot both place an order.</li></ol>
-</div></section>
-<section class="sec" aria-labelledby="s5"><h2 id="s5">Error codes you will see</h2><div class="sec-body">
-<p><code>mandate_denied</code>, <code>missing_idempotency_key</code>, <code>idempotency_key_reuse</code>, <code>mixed_supplier</code>, <code>quote_failed</code>, <code>agent_revoked</code>, <code>not_found</code>. Errors come back as an MCP tool result with <code>isError</code> and a <code>messages</code> array holding the code.</p>
-</div></section>
-</div></main>
-<footer class="bot"><div class="wrap"><p>bomhq is pre-launch. Pricing is not set.</p><p>This page as Markdown: <a href="mandates.md">mandates.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
+<body style="font:16px/1.5 system-ui,sans-serif;margin:16px">
+<p>This page moved to <a href="https://bomhq.com/docs/mandates">https://bomhq.com/docs/mandates</a>.</p>
 </body>
 </html>
