@@ -14,39 +14,41 @@
 <header class="top"><div class="wrap"><a class="brand" href="index.html">bomhq</a><div class="topr"><nav class="main" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="docs/connect.html">Docs</a><a href="pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
 <main><div class="wrap">
 
-<section class="hero" aria-labelledby="h">
+<section class="hero home" aria-labelledby="h">
 <h1 id="h">Your agent can order the BOM. You approve the money.</h1>
 <div class="codewrap"><p class="label">Connect Claude Code in 60 seconds</p><div class="codebar"><pre id="cmd-home" class="mono">claude mcp add --transport http bomhq https://bomhq.example-company.com/mcp --header "Authorization: Bearer &lt;key&gt;"</pre><button class="btn primary" type="button" data-copy-target="cmd-home">Copy command</button></div></div>
 <p class="why">Get the agent key from your company admin. Other clients are on the <a href="docs/connect.html">connect page</a>. bomhq places the order at Mouser or DigiKey on your own account, inside limits you set, and a human approves anything above them.</p>
 </section>
-
-<h2>What you see when an order needs you</h2>
-<div class="sample" role="group" aria-label="Example order, not a real one">
+<section class="sec" aria-labelledby="s1"><h2 id="s1">What you see when an order needs you</h2><div class="sec-body">
+<div class="sample" role="group" aria-label="Example order, not a real one"><div class="row sel">
 <div class="rh"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Needs approval</span></span><span class="main"><span class="who">bom-buyer</span><span class="mpn mono">BOM rev B x 5, spare passives</span></span><span class="tot num">EUR 287.40</span><span class="exp">expires in 71 h</span></div>
-<dl class="cues">
+<div class="row-body"><dl class="cues">
 <dt>Asked for</dt><dd>"Order the BOM of rev B for 5 boards from Mouser, 10% spare on passives, max EUR 300."</dd>
 <dt>Categories</dt><dd>Allowed: passives, ics</dd>
 <dt>Per order</dt><dd>Under the maximum of <span class="num">EUR 500.00</span></dd>
 <dt>This month</dt><dd>Inside the cap of <span class="num">EUR 2,000.00</span></dd>
 <dt>Threshold</dt><dd>Above <span class="num">EUR 250.00</span>, so it waits for a human</dd>
 <dt>Distributor confirmation</dt><dd>None yet. It appears only after a human approves and the distributor returns an order number.</dd>
-</dl>
-<p class="cap">Example, not a real order.</p>
-</div>
-
-<h2>Where it sits</h2>
+</dl></div></div></div>
+<p class="sample-cap">Example, not a real order.</p>
+</div></section>
+<section class="sec" aria-labelledby="s2"><h2 id="s2">Where it sits</h2><div class="sec-body">
 <p>Coding agents already read your KiCad project, pull the BOM and compare distributors. They stop before the part that costs money. bomhq is that last step, not another search engine: one MCP server with six tools, per-agent spend mandates and a human approval queue.</p>
-<h2>What stays under your control</h2>
+</div></section>
+<section class="sec" aria-labelledby="s3"><h2 id="s3">What stays under your control</h2><div class="sec-body">
 <dl class="defs">
 <dt>A mandate per agent</dt><dd>Maximum per order, monthly cap, allowed categories and an approval threshold. Hard limits are denied before anything is sent.</dd>
 <dt>A human above the threshold</dt><dd>Over the threshold the order waits. Nothing reaches the distributor until an approver says yes. A rejection needs a reason.</dd>
 <dt>Re-quote before placing</dt><dd>The price and stock are checked again right before the order goes out, and again on approval. If they changed, the order stops.</dd>
 <dt>Confirmed means confirmed</dt><dd>An order is confirmed only when the distributor returns its own order number. What an agent claims about payment or status is ignored.</dd>
 </dl>
-<h2>Run it yourself</h2>
+</div></section>
+<section class="sec" aria-labelledby="s4"><h2 id="s4">Run it yourself</h2><div class="sec-body">
 <p>One bomhq install serves one company (single-tenant): one install is one company. bomhq is open source (Apache-2.0) and self-hosted first: your team runs it with your own distributor keys. See the <a href="docs/self-host.html">self-host quickstart</a>.</p>
-<h2>Status, plainly</h2>
+</div></section>
+<section class="sec" aria-labelledby="s5"><h2 id="s5">Status, plainly</h2><div class="sec-body">
 <p class="note"><span class="st"><span class="dot" data-s="waiting" aria-hidden="true"></span><span class="lbl">Pre-launch</span></span><span class="txt">The Mouser and DigiKey connectors are written against the distributors' documentation and have not been verified against a live account yet. Until then, keep caps low. See <a href="pricing.html">pricing</a> for the open-source and extras picture.</span></p>
+</div></section>
 </div></main>
 <footer class="bot"><div class="wrap"><p>bomhq is pre-launch. Pricing is not set.</p><p>This page as Markdown: <a href="index.md">index.md</a>. For agents: <a href="llms.txt">llms.txt</a>.</p></div></footer>
 </body>

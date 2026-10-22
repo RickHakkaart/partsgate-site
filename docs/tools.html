@@ -13,9 +13,10 @@
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="../index.html">bomhq</a><div class="topr"><nav class="main" aria-label="Main"><a href="../index.html">Home</a><a href="../docs/connect.html" aria-current="page">Docs</a><a href="../pricing.html">Pricing</a></nav><button class="btn themebtn" type="button" data-theme-toggle>Light theme</button></div></div></header>
 <main><div class="wrap">
-<nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html">Mandates</a><a href="tools.html" aria-current="page">Tools</a></nav>
-<h1>The six tools</h1>
-<div class="cta"><button class="btn" type="button" data-copy-page="tools.md">Copy page</button><a class="lnk" href="tools.md">View as Markdown</a></div>
+<section class="hero doc" aria-labelledby="h"><nav class="subnav" aria-label="Docs"><a href="connect.html">Connect</a><a href="mandates.html">Mandates</a><a href="tools.html" aria-current="page">Tools</a></nav>
+<h1 id="h">The six tools</h1>
+<div class="cta"><button class="btn" type="button" data-copy-page="tools.md">Copy page</button><a class="lnk" href="tools.md">View as Markdown</a></div></section>
+<section class="sec intro"><div class="sec-body">
 <p>Six tools, named and shaped after the Universal Commerce Protocol shopping service (<code>source/services/shopping/mcp.openrpc.json</code>). They are not yet schema-validated against the UCP JSON schemas. Variant ids look like <code>mouser:&lt;sku&gt;</code> or <code>digikey:&lt;sku&gt;</code>. One distributor per checkout.</p>
 <h3>search_catalog</h3>
 <p>Search components by MPN or keyword across Mouser and DigiKey, priced at your own distributor account (one install is one company).</p>
@@ -36,6 +37,7 @@
 <h3>get_order</h3>
 <p>Order state, including <code>pending_approval</code> and <code>confirmed</code>, and the distributor's order number.</p>
 <ul><li><code>id</code>: the order id</li></ul>
+</div></section>
 </div></main>
 <footer class="bot"><div class="wrap"><p>bomhq is pre-launch. Pricing is not set.</p><p>This page as Markdown: <a href="tools.md">tools.md</a>. For agents: <a href="../llms.txt">llms.txt</a>.</p></div></footer>
 </body>
